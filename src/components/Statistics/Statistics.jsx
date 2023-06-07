@@ -1,10 +1,25 @@
-const Statistics = ({ good, neutral, bad, total, positivePercentage }) => (
-    <div>
-      <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
-      <p>Total Feedback: {total}</p>
-      <p>Positive Feedback Percentage: {positivePercentage}%</p>
-    </div>
+import PropTypes from 'prop-types';
+import { FeedbackList, ListItem } from './Statistics.styled';
+
+export default function Statistics({ good, neutral, bad, total, positivePercentage }) {
+  return (
+    <>
+      <FeedbackList>
+        <ListItem>Good: {good}</ListItem>
+        <ListItem>Neutral: {neutral}</ListItem>
+        <ListItem>Bad: {bad}</ListItem>
+        <ListItem>Total: {total}</ListItem>
+        <ListItem>Positive feedback: {positivePercentage}%</ListItem>
+      </FeedbackList>
+    </>
   );
-  export default Statistics
+}
+
+
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
+};
